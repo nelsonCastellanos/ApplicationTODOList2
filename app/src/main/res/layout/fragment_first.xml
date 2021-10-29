@@ -33,6 +33,12 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:lineHeight="20dp" />
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fecha" />
+
             <CalendarView
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
@@ -43,10 +49,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Asunto"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                android:minHeight="48dp"
-                android:text="Name"
-                android:importantForAutofill="no" />
+                android:labelFor="@id/textView"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/editTextTextMultiLine"
@@ -54,7 +61,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
+                android:hint="Actividad"
                 android:inputType="textMultiLine"
+                android:labelFor="@id/editTextTextPersonName"
                 android:minHeight="48dp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
