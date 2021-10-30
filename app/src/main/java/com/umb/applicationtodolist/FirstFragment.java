@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TableRow;
@@ -27,10 +28,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.umb.applicationtodolist.databinding.FragmentFirstBinding;
 import com.umb.applicationtodolist.model.Agenda;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class FirstFragment extends Fragment {
 
@@ -48,6 +54,17 @@ public class FirstFragment extends Fragment {
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("agenda");
+
+        binding.calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            //show the selected date as a toast
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
+                Calendar c = Calendar.getInstance();
+                c.set(year, month, day);
+                binding.calendarView.setDate(c.getTimeInMillis());
+            }
+        });
+
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,12 +98,13 @@ public class FirstFragment extends Fragment {
                 });
                 Agenda value = dataSnapshot.getValue(Agenda.class);
                 Log.d(TAG, "Value is: " + value);
-
-                for (Agenda agenda :agendas) {
+                binding.tableMain.removeViews(1, binding.tableMain.getChildCount()-1);
+                for (Agenda agenda :agendas.stream().sorted(Comparator.comparing(Agenda::getFecha).reversed()).collect(Collectors.toCollection(LinkedHashSet::new))) {
                     TableRow tbrow = new TableRow(binding.tableMain.getContext());
-                    addColumnValue(tbrow, agenda.getFecha().toString());
-                    addColumnValue(tbrow, agenda.getActividad());
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    addColumnValue(tbrow, formatter.format(agenda.getFecha()));
                     addColumnValue(tbrow, agenda.getAsunto());
+                    addColumnValue(tbrow, agenda.getActividad());
                     binding.tableMain.addView(tbrow);
                 }
             }

@@ -88,10 +88,9 @@
 
                     <TextView
                         android:id="@+id/textView"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="12dp"
-                        android:capitalize="characters"
                         android:fontFamily="serif"
                         android:minHeight="48dp"
                         android:text="@string/lista_de_tareas"
@@ -101,10 +100,10 @@
 
                     <TableLayout
                         android:id="@+id/table_main"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="70dp"
-                        android:stretchColumns="*">
+                        android:stretchColumns="1">
 
                         <TableRow
                             android:id="@+id/columns"
