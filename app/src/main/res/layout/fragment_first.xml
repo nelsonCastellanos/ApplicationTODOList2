@@ -10,28 +10,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="SpeakableTextPresentCheck"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="42dp">
+        tools:layout_editor_absoluteX="12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
-            android:layout_marginTop="30dp"
             android:layout_marginRight="12dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView8"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="12dp"
                 android:capitalize="characters"
                 android:fontFamily="serif"
                 android:minHeight="48dp"
-                android:text="@string/lista_de_tareas"
+                android:text="Crear Tarea"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:lineHeight="20dp" />
+                app:lineHeight="20dp"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -63,11 +62,11 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="@string/actividad"
+                android:importantForAutofill="no"
                 android:inputType="textMultiLine"
                 android:labelFor="@id/editTextTextPersonName"
                 android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:importantForAutofill="no" />
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <Button
                 android:id="@+id/button"
@@ -75,6 +74,73 @@
                 android:layout_height="wrap_content"
                 android:text="@string/guardar" />
 
+            <HorizontalScrollView
+                android:id="@+id/hscrll1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="10dp"
+                android:theme="@style/Theme.ApplicationTODOList">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="12dp"
+                        android:capitalize="characters"
+                        android:fontFamily="serif"
+                        android:minHeight="48dp"
+                        android:text="@string/lista_de_tareas"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        app:lineHeight="20dp"
+                        tools:ignore="DuplicateSpeakableTextCheck" />
+
+                    <TableLayout
+                        android:id="@+id/table_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="70dp"
+                        android:stretchColumns="*">
+
+                        <TableRow
+                            android:id="@+id/columns"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#009688">
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/ColumnaFecha"
+                                android:textAlignment="center"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/textView4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/columnaAsunto"
+                                android:textAlignment="center"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/textView5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/columnaActividad"
+                                android:textAlignment="center"
+                                android:textColor="@color/white" />
+
+                        </TableRow>
+
+                    </TableLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
 
         </LinearLayout>
     </ScrollView>

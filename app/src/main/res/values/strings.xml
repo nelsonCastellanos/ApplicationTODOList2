@@ -16,4 +16,8 @@
     <string name="guardar">GUARDAR</string>
     <string name="asunto">Asunto</string>
     <string name="actividad">Actividad</string>
+    <string name="ColumnaFecha">Fecha</string>
+    <string name="columnaAsunto">Asunto</string>
+    <string name="columnaActividad">Actividad</string>
+    <string name="eliminar">Eliminar</string>
 </resources>
