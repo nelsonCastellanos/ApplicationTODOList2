@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "738549924212",
+    "firebase_url": "https://androidumb-626fc-default-rtdb.firebaseio.com",
+    "project_id": "androidumb-626fc",
+    "storage_bucket": "androidumb-626fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738549924212:android:d959ec35b5f1d50deeac21",
+        "android_client_info": {
+          "package_name": "com.umb.applicationtodolist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738549924212-nkm2jk28homiscd7alh0oo0mrq868oht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm-P_pjiX6i764jZX7gJMxf3iR9rV4D5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738549924212-nkm2jk28homiscd7alh0oo0mrq868oht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

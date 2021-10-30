@@ -37,7 +37,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fecha" />
+                android:text="@string/fecha" />
 
             <CalendarView
                 android:id="@+id/calendarView"
@@ -49,11 +49,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Asunto"
+                android:hint="@string/asunto"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:labelFor="@id/textView"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <EditText
                 android:id="@+id/editTextTextMultiLine"
@@ -61,17 +62,18 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
-                android:hint="Actividad"
+                android:hint="@string/actividad"
                 android:inputType="textMultiLine"
                 android:labelFor="@id/editTextTextPersonName"
                 android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:importantForAutofill="no" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="GUARDAR" />
+                android:text="@string/guardar" />
 
 
         </LinearLayout>
