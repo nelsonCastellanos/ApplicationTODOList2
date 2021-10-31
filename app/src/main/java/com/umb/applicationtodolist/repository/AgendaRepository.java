@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-public class AgendaRepository {
+public class AgendaRepository implements IAgendaRepository{
     FirebaseDatabase database;
     DatabaseReference myRef;
 

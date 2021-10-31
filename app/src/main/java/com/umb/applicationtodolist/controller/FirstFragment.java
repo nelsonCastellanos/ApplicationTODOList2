@@ -1,4 +1,4 @@
-package com.umb.applicationtodolist;
+package com.umb.applicationtodolist.controller;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -45,7 +45,7 @@ public class FirstFragment extends Fragment {
 
     private static final String TAG = "FirstFragment";
     private FragmentFirstBinding binding;
-    private AgendaService service;
+    private final AgendaService service;
 
     public FirstFragment() {
         this.service = new AgendaService();

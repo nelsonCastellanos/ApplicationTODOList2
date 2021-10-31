@@ -29,7 +29,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 public class AgendaService {
-    private AgendaRepository repository;
+    private final AgendaRepository repository;
 
     public AgendaService() {
         repository = new AgendaRepository();
@@ -66,36 +66,30 @@ public class AgendaService {
     }
 
     public View.OnClickListener onClickListener(FragmentFirstBinding binding){
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String uuid = UUID.randomUUID().toString();
-                long datePicker = binding.calendarView.getDate();
-                Date d = new Date(datePicker);
-                String asunto = binding.editTextTextPersonName.getText().toString();
-                String activity = binding.editTextTextMultiLine.getText().toString();
-                Agenda agenda = new Agenda(uuid,d,asunto,activity);
-                if(asunto.isEmpty() || activity.isEmpty()){
-                    Snackbar.make(view, "El asunto y la actividad son obligatorias.", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }else{
-                    Crear(agenda);
-                    Snackbar.make(view, "Información almacenada.", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
+        return view -> {
+            String uuid = UUID.randomUUID().toString();
+            long datePicker = binding.calendarView.getDate();
+            Date d = new Date(datePicker);
+            String asunto = binding.editTextTextPersonName.getText().toString();
+            String activity = binding.editTextTextMultiLine.getText().toString();
+            Agenda agenda = new Agenda(uuid,d,asunto,activity);
+            if(asunto.isEmpty() || activity.isEmpty()){
+                Snackbar.make(view, "El asunto y la actividad son obligatorias.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }else{
+                Crear(agenda);
+                Snackbar.make(view, "Información almacenada.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         };
     }
 
     public CalendarView.OnDateChangeListener onDateChangeListener(FragmentFirstBinding binding){
-        return new CalendarView.OnDateChangeListener() {
-            //show the selected date as a toast
-            @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
-                Calendar c = Calendar.getInstance();
-                c.set(year, month, day);
-                binding.calendarView.setDate(c.getTimeInMillis());
-            }
+        //show the selected date as a toast
+        return (view, year, month, day) -> {
+            Calendar c = Calendar.getInstance();
+            c.set(year, month, day);
+            binding.calendarView.setDate(c.getTimeInMillis());
         };
     }
 
